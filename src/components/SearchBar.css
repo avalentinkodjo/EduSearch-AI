@@ -1,0 +1,220 @@
+/* ============================================
+   SearchBar Styles
+   ============================================ */
+.searchbar {
+  position: relative;
+  width: 100%;
+}
+
+.searchbar--hero {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.searchbar__form {
+  position: relative;
+}
+
+.searchbar__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-card);
+  border: 1.5px solid var(--surface-glass-border);
+  border-radius: var(--radius-xl);
+  padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+  transition: all var(--transition-normal);
+}
+
+.searchbar--focused .searchbar__input-wrapper,
+.searchbar__input-wrapper:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08), var(--shadow-glow);
+  background: var(--surface-card-hover);
+}
+
+.searchbar--hero .searchbar__input-wrapper {
+  padding: 0.625rem 0.625rem 0.625rem 1.5rem;
+}
+
+.searchbar__icon {
+  color: var(--neutral-500);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar--focused .searchbar__icon {
+  color: var(--primary-400);
+}
+
+.searchbar__spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.searchbar__input {
+  flex: 1;
+  background: transparent;
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  min-width: 0;
+}
+
+.searchbar--hero .searchbar__input {
+  font-size: 1.0625rem;
+  padding: 0.375rem 0;
+}
+
+.searchbar__input::placeholder {
+  color: var(--neutral-500);
+}
+
+.searchbar__clear {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--neutral-400);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.searchbar__clear:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Comprehension Level */
+.searchbar__level-toggle {
+  flex-shrink: 0;
+}
+
+.searchbar__level-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  color: var(--neutral-500);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.searchbar__level-btn:hover {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-400);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.searchbar__level-btn--active {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning-400);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+/* Submit */
+.searchbar__submit {
+  border-radius: var(--radius-lg) !important;
+  flex-shrink: 0;
+}
+
+.searchbar__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Dropdown */
+.searchbar__dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: var(--surface-elevated);
+  border: 1px solid var(--surface-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-dropdown);
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.searchbar__section {
+  padding: var(--space-xs) 0;
+}
+
+.searchbar__section + .searchbar__section {
+  border-top: 1px solid var(--surface-glass-border);
+  margin-top: var(--space-xs);
+  padding-top: var(--space-sm);
+}
+
+.searchbar__section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--neutral-500);
+}
+
+.searchbar__dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--neutral-400);
+  font-size: 0.875rem;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.searchbar__dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.searchbar__item-arrow {
+  margin-left: auto;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.searchbar__dropdown-item:hover .searchbar__item-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .searchbar__submit span {
+    display: none;
+  }
+
+  .searchbar__level-btn span {
+    display: none;
+  }
+
+  .searchbar__level-btn {
+    padding: 0.375rem;
+    border-radius: 50%;
+  }
+}
